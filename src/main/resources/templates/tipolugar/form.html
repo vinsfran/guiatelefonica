@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Backend Ninja - Add/modify Contact</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Tipo Lugar Form</h1>
+                <br/>
+                <form action="#" th:action="@{/tipolugar/add}" th:object="${tipolugarmodel}" method="post">
+                    <input type="hidden" th:field="*{id}"></input>
+                    Nombre: <input type="text" class="form-control" th:field="*{nombre}" th:value="${nombre}"></input>
+                    <br/>
+                    <br/>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
+                    </button>
+                </form>
+                <a href="#" th:href="@{/tipolugar/cancel}">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    </body>
+</html>
