@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-    <head layout:replace="fragments/head :: head">
-        <title layout:fragment="title">layout</title>
+    <head th:fragment="head">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <meta charset="utf-8"/>
+
+        <title>layout</title>
+
+        <link href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link href="css/datepicker3.css" th:href="@{/css/datepicker3.css}" rel="stylesheet"/>
+        <link href="css/bootstrap-table.css" th:href="@{/css/bootstrap-table.css}" rel="stylesheet"/>
+        <link href="css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+
+        <!--Icons-->
+        <script src="js/lumino.glyphs.js" th:src="@{/js/lumino.glyphs.js}"></script>
+
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+
     </head>
+
     <body>
-        <div th:replace="fragments/header :: header">
+        <div th:replace="fragments/header :: ${username == null} ? 'header_login' : 'header'">
             Header
         </div>
         <div th:replace="${view} :: content">
@@ -21,5 +36,15 @@ and open the template in the editor.
         <div th:replace="fragments/footer :: footer">
             Footer
         </div>
+
+        <script src="js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+        <script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+        <script src="js/chart.min.js" th:src="@{/js/chart.min.js}"></script>
+        <script src="js/chart-data.js" th:src="@{/js/chart-data.js}"></script>
+        <script src="js/easypiechart.js" th:src="@{/js/easypiechart.js}"></script>
+        <script src="js/easypiechart-data.js" th:src="@{/js/easypiechart-data.js}"></script>
+        <script src="js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+        <script src="js/bootstrap-table.js" th:src="@{/js/bootstrap-table.js}"></script>
+
     </body>
 </html>
