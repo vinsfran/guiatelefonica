@@ -34,6 +34,7 @@ public class LoginController {
         LOG.info("METHOD: showLoginForm() -- PARAMS: error=" + error + ", logout=" + logout);
         model.addAttribute("error", error);
         model.addAttribute("logout", logout);
+        model.addAttribute("name", "hola mundo");
         LOG.info("Returning to login view");
         return ViewConstant.LOGIN;
     }

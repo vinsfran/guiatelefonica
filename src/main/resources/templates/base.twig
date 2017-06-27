@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="robots" content="all,follow"/>
+        <meta name="googlebot" content="index,follow,snippet,archive"/>
+        <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+
+        <title>{% block title %}SIN TITULO!{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascriptsHead %}{% endblock %}
+
+        {% block favicon %}{% endblock %}
+
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

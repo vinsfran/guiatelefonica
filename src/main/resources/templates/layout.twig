@@ -1,0 +1,96 @@
+{% extends 'base.twig' %}
+
+{% block stylesheets %}
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800'
+          rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap and Font Awesome css -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('css/datepicker3.css')}}" media="screen"/>
+    <link rel="stylesheet" href={{ asset('css/bootstrap-table.css') }} media="screen"/>
+    <link rel="stylesheet" href={{ asset('css/styles.css') }} media="screen"/>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+
+{% endblock %}
+
+{% block javascriptsHead %}
+
+    <script src={{ 'js/lumino.glyphs.js' | path }}></script>
+
+{% endblock %}
+
+
+{% block favicon %}
+
+    {#    <!-- Favicon and apple touch icons-->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
+        <link rel="apple-touch-icon" href="{{ asset('bundles/app/img/apple-touch-icon.png') }}"/>
+        <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"/>
+        <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png"/>
+        <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png"/>
+        <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png"/>#}
+
+{% endblock %}
+
+{% block body %}
+
+    <div id="all">
+
+        <header>
+
+            <!-- *** TOP ***
+    _________________________________________________________ -->
+            {# {% include 'Partials/header.html.twig' %}#}
+
+            <!-- *** TOP END *** -->
+
+            <!-- *** NAVBAR ***
+    _________________________________________________________ -->
+
+            {#{% include 'Partials/mainmenu.html.twig' %}#}
+
+        </header>
+
+        <!-- *** LOGIN MODAL ***
+    _________________________________________________________ -->
+
+        {#        {% include 'Partials/modalLogin.html.twig' %}
+        
+                <!-- *** LOGIN MODAL END *** -->
+        
+                {% include 'Partials/breadcrumbs.html.twig' %}
+        
+                {% include 'Partials/messages.html.twig' %}#}
+
+    {% block content %}{% endblock %}
+
+
+    {#{% include 'Partials/footer.html.twig' %}#}
+
+    <div id="copyright">
+        <div class="container">
+            <div class="col-md-12">
+                <p class="pull-left">&copy; 2015. Your company / name goes here</p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
