@@ -2,11 +2,11 @@
 
 {% block stylesheets %}
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800'
-          rel='stylesheet' type='text/css'>
-
-    <!-- Bootstrap and Font Awesome css -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {#    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800'
+              rel='stylesheet' type='text/css'>
+    
+        <!-- Bootstrap and Font Awesome css -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">#}
 
 
 
@@ -27,13 +27,13 @@
 
 {% block javascriptsHead %}
 
-    <script src={{ 'js/lumino.glyphs.js' | path }}></script>
+    {#<script src={{ asset('js/lumino.glyphs.js' ) }}></script>#}
 
 {% endblock %}
 
 
 {% block favicon %}
-
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"/>
     {#    <!-- Favicon and apple touch icons-->
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
         <link rel="apple-touch-icon" href="{{ asset('bundles/app/img/apple-touch-icon.png') }}"/>
@@ -82,14 +82,16 @@
 
     {#{% include 'Partials/footer.html.twig' %}#}
 
-    <div id="copyright">
-        <div class="container">
-            <div class="col-md-12">
-                <p class="pull-left">&copy; 2015. Your company / name goes here</p>
+    {% block footer %}
+        <div id="copyright">
+            <div class="container center-block">
+                <div class="col-md-12">
+                    <p class="pull-left">&copy; 2017. Municipalidad de Asunción</p>
 
+                </div>
             </div>
         </div>
-    </div>
+    {% endblock %}
 
 </div>
 

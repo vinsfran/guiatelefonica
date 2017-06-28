@@ -20,21 +20,15 @@ public class LoginController {
      */
     public static final Log LOG = LogFactory.getLog(LoginController.class);
 
-    /**
-     *
-     * @param model
-     * @param error
-     * @param logout
-     * @return
-     */
     @GetMapping("/login")
     public String showLoginForm(Model model,
             @RequestParam(name = "error", required = false) String error,
+            @RequestParam(name = "tipomensaje", required = false) String tipomensaje,
             @RequestParam(name = "logout", required = false) String logout) {
         LOG.info("METHOD: showLoginForm() -- PARAMS: error=" + error + ", logout=" + logout);
         model.addAttribute("error", error);
+        model.addAttribute("tipomensaje", tipomensaje);
         model.addAttribute("logout", logout);
-        model.addAttribute("name", "hola mundo");
         LOG.info("Returning to login view");
         return ViewConstant.LOGIN;
     }
