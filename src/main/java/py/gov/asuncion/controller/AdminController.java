@@ -29,8 +29,9 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/admin")
 public class AdminController {
 
-    public static final String INDEX_VIEW = "index";
-    public static final String TABLES_VIEW = "tables";
+    public static final String ADMIN = "admin";
+    public static final String DASHBOARD_VIEW = "dashboard";
+    public static final String TABLES_VIEW = "admin/tables";
     /**
      *
      */
@@ -40,14 +41,14 @@ public class AdminController {
     @Qualifier("contactServiceImpl")
     private ContactService contactService;
 
-    @GetMapping("/")
-    public RedirectView redirect() {
-        return new RedirectView("/index");
-    }
+//    @GetMapping("/")
+//    public RedirectView redirect() {
+//        return new RedirectView(DASHBOARD_VIEW);
+//    }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public ModelAndView showIndex(Model model) {
-        ModelAndView mav = new ModelAndView(INDEX_VIEW);
+        ModelAndView mav = new ModelAndView(ADMIN + "/" + DASHBOARD_VIEW);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         mav.addObject("username", user.getUsername() + " 1");
         return mav;
