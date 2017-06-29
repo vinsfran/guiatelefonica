@@ -45,8 +45,7 @@ public class AdminController {
 //    public RedirectView redirect() {
 //        return new RedirectView(DASHBOARD_VIEW);
 //    }
-
-    @GetMapping("/")
+    @GetMapping({"/", "/dashboard"})
     public ModelAndView showIndex(Model model) {
         ModelAndView mav = new ModelAndView(ADMIN + "/" + DASHBOARD_VIEW);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
