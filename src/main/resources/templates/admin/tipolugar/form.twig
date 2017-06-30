@@ -11,8 +11,16 @@
         <form role="form" action="add" method="POST">
 
             <div class="form-group">
+                <input id="id" 
+                       type="hidden" 
+                       name="id" 
+                       value="{{tipolugarmodel.id}}"></input>
                 <label>Nombre</label>
-                <input type="text" class="form-control" value="{{tipolugarmodel.nombre}}"></input>
+                <input id="nombre" 
+                       type="text" 
+                       name="nombre" 
+                       value="{{ tipolugarmodel.nombre }}" 
+                       class="form-control"/>
             </div>
 
             <div class="form-group">
@@ -24,7 +32,7 @@
                 <button class="btn btn-primary pull-right" style="margin: 5px" type="submit">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
                 </button>
-                
+
             </div>
         </form>
     </div>
