@@ -54,8 +54,9 @@ public class AdminController {
     }
     
     @GetMapping("/tiposlugares")
-    public RedirectView redirect() {
-        return new RedirectView("tipolugar/list");
+    public String redirect() {
+//        return new RedirectView("tipolugar/list");
+        return "redirect:tipolugar/list";
     }
 
 //    @GetMapping("/tipolugar")

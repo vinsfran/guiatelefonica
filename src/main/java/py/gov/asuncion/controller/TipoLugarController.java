@@ -36,7 +36,7 @@ public class TipoLugarController {
 
     @GetMapping("/cancel")
     public String cancel() {
-        return "redirect:/" + ViewConstant.ADMIN_TIPO_LUGAR_LIST;
+        return "redirect:/" + ViewConstant.TIPO_LUGAR_LIST;
     }
 
     // @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -58,7 +58,7 @@ public class TipoLugarController {
     @PostMapping("/add")
     public ModelAndView addTipoLugar(@ModelAttribute(name = "tipolugarmodel") TipoLugarModel tipoLugarModel) {
         LOG.info("METHOD: addTipoLugar() -- PARAMS: " + tipoLugarModel.toString());
-        ModelAndView mav = new ModelAndView(ViewConstant.ADMIN_TIPO_LUGAR_LIST);
+        ModelAndView mav = new ModelAndView(ViewConstant.TIPO_LUGAR_LIST);
         if (tipoLugarService.addTipoLugar(tipoLugarModel) != null) {
             LOG.info("METHOD: addTipoLugar() -- result: " + 1);
             mav.addObject("result", 1);
@@ -75,7 +75,7 @@ public class TipoLugarController {
     @GetMapping("/list")
     public ModelAndView showTiposLugares(@RequestParam(name = "mensaje", required = false) String mensaje,
             @RequestParam(name = "classmensaje", required = false) String classmensaje) {
-        ModelAndView mav = new ModelAndView(ViewConstant.ADMIN_TIPO_LUGAR_LIST);
+        ModelAndView mav = new ModelAndView(ViewConstant.TIPO_LUGAR_LIST);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         mav.addObject("username", user.getUsername() + " 1");
         mav.addObject("tiposlugares", tipoLugarService.listAllTiposLugares());
