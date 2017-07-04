@@ -21,16 +21,14 @@ import py.gov.asuncion.service.TipoLugarService;
  */
 @Controller
 //@PreAuthorize("hasRole('ROLE_USER')")
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/dashboard")
+public class DashboardController {
 
-    public static final String ADMIN = "admin";
-    public static final String DASHBOARD_VIEW = "dashboard";
-    public static final String TABLES_VIEW = "admin/tables";
+
     /**
      *
      */
-    public static final Log LOG = LogFactory.getLog(AdminController.class);
+    public static final Log LOG = LogFactory.getLog(DashboardController.class);
 
     @Autowired
     @Qualifier("tipoLugarServiceImpl")
@@ -40,9 +38,9 @@ public class AdminController {
 //    public RedirectView redirect() {
 //        return new RedirectView(DASHBOARD_VIEW);
 //    }
-    @GetMapping({"/", "/dashboard"})
+    @GetMapping({"/"})
     public ModelAndView showIndex(Model model) {
-        ModelAndView mav = new ModelAndView(ADMIN + "/" + DASHBOARD_VIEW);
+        ModelAndView mav = new ModelAndView(ViewConstant.DASHBOARD_VIEW);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         mav.addObject("username", user.getUsername() + " 1");
         return mav;
@@ -50,13 +48,13 @@ public class AdminController {
 
     @GetMapping("/tables")
     public String showTables(Model model) {
-        return TABLES_VIEW;
+        return ViewConstant.TABLES_VIEW;
     }
     
     @GetMapping("/tiposlugares")
     public String redirect() {
 //        return new RedirectView("tipolugar/list");
-        return "redirect:tipolugar/list";
+        return "redirect:/tipolugar/list";
     }
 
 //    @GetMapping("/tipolugar")

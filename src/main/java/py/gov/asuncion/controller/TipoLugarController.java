@@ -25,7 +25,7 @@ import py.gov.asuncion.model.TipoLugarModel;
  */
 @Controller
 //@PreAuthorize("hasRole('ROLE_USER')")
-@RequestMapping("admin/tipolugar")
+@RequestMapping("/tipolugar")
 public class TipoLugarController {
 
     public static final Log LOG = LogFactory.getLog(TipoLugarController.class);
@@ -72,7 +72,7 @@ public class TipoLugarController {
 //        return mav;
     }
 
-    @GetMapping("/list")
+    @GetMapping({"/", "/list"})
     public ModelAndView showTiposLugares(@RequestParam(name = "mensaje", required = false) String mensaje,
             @RequestParam(name = "classmensaje", required = false) String classmensaje) {
         ModelAndView mav = new ModelAndView(ViewConstant.TIPO_LUGAR_LIST);

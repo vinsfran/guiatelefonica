@@ -11,7 +11,11 @@ public class ViewConstant {
     public static final String CONTACT_FORM = "contactform";
     public static final String CONTACTS = "contacts";
 
-    public static final String TIPO_LUGAR_FORM = "admin/tipolugar/form";
+    public static final String TIPO_LUGAR_FORM = "tipolugar/form";
     public static final String TIPO_LUGAR_LIST = "tipolugar/list";
+
+    public static final String ADMIN = "admin";
+    public static final String DASHBOARD_VIEW = "dashboard/index";
+    public static final String TABLES_VIEW = "dashboard/tables";
 
 }
