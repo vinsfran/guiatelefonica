@@ -1,8 +1,8 @@
 {% extends asset('templates/layouts/layout.twig') %}
 
-{% block title %}Tipo de Lugar{% endblock %}
+{% block title %}Tipo de Telefono{% endblock %}
 
-{% block tituloform %}Tipo de Lugar{% endblock %}
+{% block tituloform %}Tipo de Telefono{% endblock %}
 
 {% block content %}
 
@@ -21,17 +21,17 @@
                 <input id="id" 
                        type="hidden" 
                        name="id" 
-                       value="{{tipolugarmodel.id}}"></input>
+                       value="{{tipotelefonomodel.id}}"></input>
                 <label>Nombre</label>
                 <input id="nombre" 
                        type="text" 
                        name="nombre" 
-                       value="{{tipolugarmodel.nombre}}" 
+                       value="{{tipotelefonomodel.nombre}}" 
                        class="form-control"/>
             </div>
 
             <div class="form-group">
-                <a href="#" th:href="@{/tipolugar/cancel}">
+                <a href="#" th:href="@{/tipotelefono/cancel}">
                     <button class="btn btn-default pull-right" style="margin: 5px" type="submit">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
                     </button>
