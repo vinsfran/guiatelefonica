@@ -1,4 +1,4 @@
-package py.gov.asuncion.converter;
+package py.gov.asuncion.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -14,6 +14,6 @@ public class TestCrypt {
      */
     public static void main(String[] args) {
         BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
-        System.out.println(pe.encode("user"));
+        System.out.println(pe.encode("admin123"));
     }
 }
