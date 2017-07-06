@@ -1,19 +1,13 @@
 {% extends asset('templates/layouts/layout.twig') %}
 
-{% block title %}Telefono{% endblock %}
+{% block title %}Tipo de Telefono{% endblock %}
 
-{% block tituloform %}Telefono{% endblock %}
+{% block tituloform %}Tipo de Telefono{% endblock %}
 
 {% block content %}
 
 
     <div class="col-md-6">
-        <div class="row">
-            <ol class="breadcrumb">
-                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                <li class="active">Icons</li>
-            </ol>
-        </div>
 
         <form role="form" action="add" method="POST">
 
@@ -21,26 +15,25 @@
                 <input id="id" 
                        type="hidden" 
                        name="id" 
-                       value="{{telefonomodel.id}}"></input>
+                       value="{{tipotelefonomodel.id}}"></input>
                 <label>Nombre</label>
                 <input id="nombre" 
                        type="text" 
                        name="nombre" 
-                       value="{{telefonomodel.nombre}}" 
+                       value="{{tipotelefonomodel.nombre}}" 
                        class="form-control"/>
-            </div>
 
-            <div class="form-group">
-                <a href="#" th:href="@{/telefono/cancel}">
-                    <button class="btn btn-default pull-right" style="margin: 5px" type="submit">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+                <div class="form-group">
+                    <a href="#" th:href="@{/tipotelefono/cancel}">
+                        <button class="btn btn-default pull-right" style="margin: 5px" type="submit">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+                        </button>
+                    </a>
+                    <button class="btn btn-primary pull-right" style="margin: 5px" type="submit">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
                     </button>
-                </a>
-                <button class="btn btn-primary pull-right" style="margin: 5px" type="submit">
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
-                </button>
 
-            </div>
+                </div>
         </form>
     </div>
 

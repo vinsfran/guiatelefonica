@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import py.gov.asuncion.model.TelefonoModel;
+import py.gov.asuncion.service.TipoTelefonoService;
 
 /**
  *
@@ -34,9 +35,13 @@ public class TelefonoController {
     @Qualifier("telefonoServiceImpl")
     private TelefonoService telefonoService;
 
+    @Autowired
+    @Qualifier("tipoTelefonoServiceImpl")
+    private TipoTelefonoService tipoTelefonoService;
+
     @GetMapping("/cancel")
     public String cancel() {
-        return "redirect:/" + ViewConstant.TIPO_TELEFONO_LIST;
+        return "redirect:/" + ViewConstant.TELEFONO_LIST;
     }
 
     // @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -52,30 +57,31 @@ public class TelefonoController {
             telefonoModel = telefonoService.findTelefonoModelById(id);
         }
         model.addAttribute("telefonomodel", telefonoModel);
-        return ViewConstant.TIPO_TELEFONO_FORM;
+        model.addAttribute("tipostelefonos", tipoTelefonoService.listAllTiposTelefonos());
+        return ViewConstant.TELEFONO_FORM;
     }
 
     @PostMapping("/add")
-    public ModelAndView addTelefono(@ModelAttribute(name = "tipolugarmodel") TelefonoModel telefonoModel) {
+    public ModelAndView addTelefono(@ModelAttribute(name = "telefonoModel") TelefonoModel telefonoModel) {
         LOG.info("METHOD: addTelefono() -- PARAMS: " + telefonoModel.toString());
-        ModelAndView mav = new ModelAndView(ViewConstant.TIPO_TELEFONO_LIST);
+        ModelAndView mav = new ModelAndView(ViewConstant.TELEFONO_LIST);
         if (telefonoService.addTelefono(telefonoModel) != null) {
             LOG.info("METHOD: addTelefono() -- result: " + 1);
             mav.addObject("result", 1);
-            return showTiposTelefonos("Agregado Correctamente!", "alert alert-success");
+            return showTelefonos("Agregado Correctamente!", "alert alert-success");
         } else {
             LOG.info("METHOD: addTelefono() -- result: " + 0);
             mav.addObject("result", 0);
-            return showTiposTelefonos("Error agregando Tipo de Telefono!", "alert alert-danger");
+            return showTelefonos("Error agregando Tipo de Telefono!", "alert alert-danger");
         }
 //        return "redirect:/" + ViewConstant.TIPO_TELEFONO_LIST;
 //        return mav;
     }
 
     @GetMapping({"/", "/list"})
-    public ModelAndView showTiposTelefonos(@RequestParam(name = "mensaje", required = false) String mensaje,
+    public ModelAndView showTelefonos(@RequestParam(name = "mensaje", required = false) String mensaje,
             @RequestParam(name = "classmensaje", required = false) String classmensaje) {
-        ModelAndView mav = new ModelAndView(ViewConstant.TIPO_TELEFONO_LIST);
+        ModelAndView mav = new ModelAndView(ViewConstant.TELEFONO_LIST);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         mav.addObject("username", user.getUsername() + " 1");
         mav.addObject("telefonos", telefonoService.listAllTelefonos());
@@ -87,6 +93,6 @@ public class TelefonoController {
     @GetMapping("/remove")
     public ModelAndView removeTelefono(@RequestParam(name = "id", required = true) int id) {
         telefonoService.removeTelefono(id);
-        return showTiposTelefonos("Tipo de Telefono eliminado!", "alert alert-info");
+        return showTelefonos("Tipo de Telefono eliminado!", "alert alert-info");
     }
 }

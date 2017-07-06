@@ -15,30 +15,34 @@ public class TelefonoConverter {
 
     public Telefono convertTelefonoModelToTelefono(TelefonoModel telefonoModel) {
         Telefono telefono = new Telefono(telefonoModel.getId(),
-                telefonoModel.getNombre());
+                telefonoModel.getNombre(),
+                telefonoModel.getTipoTelefonoId()
+        );
         return telefono;
     }
 
     public List<Telefono> convertTelefonosModelToTelefonos(List<TelefonoModel> tiposTelefonoesModel) {
-        List<Telefono> tiposTelefonoes = new ArrayList<>();
+        List<Telefono> telefonos = new ArrayList<>();
         for (TelefonoModel telefonoModel : tiposTelefonoesModel) {
-            tiposTelefonoes.add(convertTelefonoModelToTelefono(telefonoModel));
+            telefonos.add(convertTelefonoModelToTelefono(telefonoModel));
         }
-        return tiposTelefonoes;
+        return telefonos;
     }
 
     public TelefonoModel convertTelefonoToTelefonoModel(Telefono telefono) {
         TelefonoModel telefonoModel = new TelefonoModel(telefono.getId(),
-                telefono.getNumero());
+                telefono.getNumero(),
+                telefono.getTipoTelefonoId()
+        );
         return telefonoModel;
     }
 
     public List<TelefonoModel> convertTelefonosToTelefonosModel(List<Telefono> telefonos) {
-        List<TelefonoModel> tiposTelefonosModel = new ArrayList<>();
+        List<TelefonoModel> telefonosModel = new ArrayList<>();
         for (Telefono telefono : telefonos) {
-            tiposTelefonosModel.add(convertTelefonoToTelefonoModel(telefono));
+            telefonosModel.add(convertTelefonoToTelefonoModel(telefono));
         }
-        return tiposTelefonosModel;
+        return telefonosModel;
     }
 
 }

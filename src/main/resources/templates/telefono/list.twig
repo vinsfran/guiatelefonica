@@ -1,8 +1,8 @@
 {% extends asset('templates/layouts/layout.twig') %}
 
-{% block title %}Tipos de Telefonos{% endblock %}
+{% block title %}Telefonos{% endblock %}
 
-{% block tituloform %}Tipos de Telefonos{% endblock %}
+{% block tituloform %}Telefonos{% endblock %}
 
 {% block content %}
 
@@ -21,19 +21,21 @@
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>Tipo de Telefono</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            {% for tipotelefono in tipostelefonos %}
+            {% for telefono in telefonos %}
                 <tr class="todo-list">
-                    <td>{{tipotelefono.nombre}}</td>
+                    <td>{{telefono.nombre}}</td>
+                    <td>{{telefono.tipoTelefonoId.nombre}}</td>
                     <td>
                         <div class="pull-left">
-                            <a href="form?id={{tipotelefono.id}}" style="padding: 5px">
+                            <a href="form?id={{telefono.id}}" style="padding: 5px">
                                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
                             </a>
-                            <a href="remove?id={{tipotelefono.id}}" style="padding: 5px">
+                            <a href="remove?id={{telefono.id}}" style="padding: 5px">
                                 <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></svg></button>
                             </a>
                         </div>

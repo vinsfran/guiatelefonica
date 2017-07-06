@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,13 +28,16 @@ public class Telefono {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "numero")
     private String numero;
+    
     @ManyToMany(mappedBy = "telefonoList")
     private List<Lugar> lugarList;
+    
     @JoinColumn(name = "tipo_telefono_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private TipoTelefono tipoTelefonoId;
@@ -45,9 +49,10 @@ public class Telefono {
         this.id = id;
     }
 
-    public Telefono(Integer id, String numero) {
+    public Telefono(Integer id, String numero, TipoTelefono tipoTelefonoId) {
         this.id = id;
         this.numero = numero;
+        this.tipoTelefonoId = tipoTelefonoId;
     }
 
     public Integer getId() {
