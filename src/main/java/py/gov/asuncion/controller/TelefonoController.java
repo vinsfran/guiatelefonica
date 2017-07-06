@@ -84,6 +84,10 @@ public class TelefonoController {
         ModelAndView mav = new ModelAndView(ViewConstant.TELEFONO_LIST);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         mav.addObject("username", user.getUsername() + " 1");
+        for (TelefonoModel tm : telefonoService.listAllTelefonos()) {
+            LOG.info("METHOD: showTelefonos() -- PARAMS: " + tm.toString());
+
+        }
         mav.addObject("telefonos", telefonoService.listAllTelefonos());
         mav.addObject("mensaje", mensaje);
         mav.addObject("classmensaje", classmensaje);

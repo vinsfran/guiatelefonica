@@ -4,7 +4,11 @@ import py.gov.asuncion.entity.Telefono;
 import py.gov.asuncion.model.TelefonoModel;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import py.gov.asuncion.entity.TipoTelefono;
+import py.gov.asuncion.service.TipoTelefonoService;
 
 /**
  *
@@ -13,10 +17,17 @@ import org.springframework.stereotype.Component;
 @Component("telefonoConverter")
 public class TelefonoConverter {
 
+    @Autowired
+    @Qualifier("tipoTelefonoServiceImpl")
+    private TipoTelefonoService tipoTelefonoService;
+
     public Telefono convertTelefonoModelToTelefono(TelefonoModel telefonoModel) {
+
+        TipoTelefono tipoTelefono = tipoTelefonoService.findTipoTelefonoById(telefonoModel.getTipoTelefonoId().getId());
+
         Telefono telefono = new Telefono(telefonoModel.getId(),
                 telefonoModel.getNombre(),
-                telefonoModel.getTipoTelefonoId()
+                tipoTelefono
         );
         return telefono;
     }

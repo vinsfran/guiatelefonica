@@ -20,6 +20,12 @@ public class ViewConstant {
     public static final String TELEFONO_FORM = "telefono/form";
     public static final String TELEFONO_LIST = "telefono/list";
 
+    public static final String LUGAR_FORM = "lugar/form";
+    public static final String LUGAR_LIST = "lugar/list";
+
+    public static final String LUGAR_TELEFONO_FORM = "lugartelefono/form";
+    public static final String LUGAR_TELEFONO_LIST = "lugartelefono/list";
+
     public static final String CONTACT_FORM = "contactform";
     public static final String CONTACTS = "contacts";
 

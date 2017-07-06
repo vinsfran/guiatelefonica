@@ -1,0 +1,54 @@
+{% extends asset('templates/layouts/layout.twig') %}
+
+{% block title %}Lugar con Telefono{% endblock %}
+
+{% block tituloform %}Lugar con Telefono{% endblock %}
+
+{% block content %}
+
+
+    <div class="col-md-6">
+
+        <form role="form" action="add" method="POST">
+
+            <div class="form-group">
+                <input id="id" 
+                       type="hidden" 
+                       name="id" 
+                       value="{{lugarmodel.id}}"></input>
+                <label>Nombre</label>
+                <input id="nombre" 
+                       type="text" 
+                       name="nombre" 
+                       value="{{lugarmodel.nombre}}" 
+                       class="form-control"/>
+
+                <label>Tipo de Telefono</label>
+
+                <select id="tipoLugarId"
+                        name="tipoLugarId.id" 
+                        class="form-control">
+
+                    {% for telefono in lugarmodel.telefonoList %}
+                        <option value="{{telefono.id}}">{{telefono.numero}}</option>
+                    {% endfor %}
+
+                </select> 
+
+            </div>
+
+            <div class="form-group">
+                <a href="#" th:href="@{/lugar/cancel}">
+                    <button class="btn btn-default pull-right" style="margin: 5px" type="submit">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+                    </button>
+                </a>
+                <button class="btn btn-primary pull-right" style="margin: 5px" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
+                </button>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

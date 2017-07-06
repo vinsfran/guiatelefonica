@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,11 +34,13 @@ public class Lugar {
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
+    
     @JoinTable(name = "lugar_telefono", joinColumns = {
         @JoinColumn(name = "lugar_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "telefono_id", referencedColumnName = "id")})
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Telefono> telefonoList;
+    
     @JoinColumn(name = "tipo_lugar_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private TipoLugar tipoLugarId;
@@ -49,9 +52,10 @@ public class Lugar {
         this.id = id;
     }
 
-    public Lugar(Integer id, String nombre) {
+    public Lugar(Integer id, String nombre, TipoLugar tipoLugarId) {
         this.id = id;
         this.nombre = nombre;
+        this.tipoLugarId = tipoLugarId;
     }
 
     public Integer getId() {

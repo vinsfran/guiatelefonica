@@ -39,7 +39,7 @@ public class Telefono {
     private List<Lugar> lugarList;
     
     @JoinColumn(name = "tipo_telefono_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private TipoTelefono tipoTelefonoId;
 
     public Telefono() {
