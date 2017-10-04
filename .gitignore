@@ -11,3 +11,6 @@ nb-configuration.xml
 # idea
 .idea
 guiatelefonica.iml
+.classpath
+.project
+.settings/
